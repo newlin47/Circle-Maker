@@ -4,16 +4,15 @@ const sizeSelect = document.querySelector('#size-select');
 const container = document.querySelector('#container');
 
 container.addEventListener('click', (ev) => {
-  ev.target.parentNode.removeChild(ev.target);
+  if (ev.target.id !== 'container') {
+    ev.target.parentNode.removeChild(ev.target);
+  }
 });
 
 button.addEventListener('click', () => {
   const color = colorSelect.value;
   const size = sizeSelect.value;
   const circle = document.createElement('div');
-  circle.addEventListener('click', () => {
-    console.log('hello world');
-  });
   circle.classList.add(size);
   circle.classList.add(color);
   container.append(circle);
